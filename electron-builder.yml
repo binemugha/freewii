@@ -21,6 +21,8 @@ mac:
   category: public.app-category.games
   icon: build/icon.icns
   identity: "-"
+  hardenedRuntime: true
+  notarize: true
   target:
     - target: dmg
       arch:

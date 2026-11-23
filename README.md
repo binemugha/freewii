@@ -30,6 +30,49 @@ Windows, and Linux installers, and publishes them to the matching GitHub
 release. The download website links to the latest release. The website deploys
 to GitHub Pages when `website/` changes on `main`.
 
+### Apple signing and notarization
+
+The macOS release job requires a **Developer ID Application** certificate and
+an **App Store Connect API key**. It requires Developer ID signing and verifies
+both app architectures with `codesign`, `stapler`, and Gatekeeper before the
+job can succeed.
+
+1. In the [Apple Developer certificates page](https://developer.apple.com/account/resources/certificates/list),
+   create a **Developer ID Application** certificate, then download and open it
+   in Keychain Access. This certificate type is for distribution outside the
+   Mac App Store; an Apple Development or Apple Distribution certificate will
+   not work.
+2. In Keychain Access, select **login → My Certificates**, expand the Developer
+   ID certificate, select both the certificate and its private key, and export
+   them as a password-protected `.p12` file.
+3. Copy the certificate as base64 for GitHub:
+
+   ```bash
+   base64 -i freewii-developer-id.p12 | pbcopy
+   ```
+
+4. In App Store Connect, open **Users and Access → Keys**, create a key with
+   the **Developer** role, download its `.p8` file, and note its Key ID and
+   Issuer ID. Copy the key as one-line base64:
+
+   ```bash
+   base64 -i AuthKey_KEYID.p8 | tr -d '\n' | pbcopy
+   ```
+
+5. Add these [encrypted GitHub Actions secrets](https://github.com/binemugha/freewii/settings/secrets/actions):
+
+   | Secret | Value |
+   | --- | --- |
+   | `MAC_CSC_LINK` | Base64 contents of the exported `.p12` certificate |
+   | `MAC_CSC_KEY_PASSWORD` | Password chosen when exporting the `.p12` |
+   | `APPLE_API_KEY` | One-line base64 contents of the `.p8` API key |
+   | `APPLE_API_KEY_ID` | App Store Connect API Key ID |
+   | `APPLE_API_ISSUER` | App Store Connect API Issuer ID |
+
+Keep the `.p12`, `.p8`, passwords, and private keys out of git and chat. The
+repository already ignores these certificate and key file types. The next `v*`
+tag will create a signed, notarized, and stapled macOS release.
+
 ## Quick start from source
 
 Requires **Node.js 22+**, a computer browser with WebGL 2, and a
