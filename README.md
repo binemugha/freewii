@@ -12,8 +12,8 @@ Requires **Node.js 22+**, **OpenSSL**, a computer browser with WebGL 2, and a
 motion-capable phone browser on the **same Wi-Fi**.
 
 ```bash
-git clone https://github.com/pattssun/OpenWii.git
-cd OpenWii
+git clone https://github.com/binemugha/freewii.git
+cd freewii
 npm ci
 npm start
 ```
@@ -34,6 +34,7 @@ play.
 | --- | --- | --- |
 | 🏎️ **[Mario Kart](games/mario-kart/README.md)** | Hold your phone sideways to steer, drift, boost and use items. The linked guide covers controls and included assets. | 1 human + 7 CPU racers |
 | 🍉 **[Fruit Ninja](games/fruit-ninja/)** | Swing to slice fruit, dodge bombs and build combos. | Up to 4 |
+| 🎳 **[Bowling](games/bowling/)** | Point to aim and swing to bowl through a full ten-frame game. | 1 |
 | 👾 **[Alien Attack](games/alien-attack/)** | Tilt to fly and press A to fire. | 1 |
 | 🎯 **[Shooting Range](games/shooting-range/)** | Point and press A to hit targets against the clock. | 1 |
 | 🎨 **[Sketch](games/drawing/)** | Point and press A to draw. Choose colors, brushes and an eraser. | 1 |
