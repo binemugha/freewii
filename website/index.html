@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Download FreeWii and turn your phone into a motion controller for games on your computer.">
+  <title>FreeWii — Your phone is the controller</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="nav">
+    <a class="brand" href="./" aria-label="FreeWii home"><span class="brand-mark">F</span>FreeWii</a>
+    <a href="https://github.com/binemugha/freewii">Source code</a>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="eyebrow">Motion-controlled games for your computer</div>
+      <h1>Your phone is<br><span>the controller.</span></h1>
+      <p class="intro">Download the desktop app, scan a QR code, and play. No phone app, Node.js installation, or technical setup required.</p>
+      <div class="hero-actions">
+        <a class="button primary" id="primary-download" href="https://github.com/binemugha/freewii/releases/latest">Download FreeWii</a>
+        <a class="button secondary" href="#downloads">Choose your platform</a>
+      </div>
+      <p class="release-note" id="release-note">Available for macOS, Windows, and Linux.</p>
+    </section>
+
+    <section class="preview" aria-label="FreeWii game preview">
+      <img src="assets/mario-kart.png" alt="Mario Kart running in FreeWii with driver selection and the stadium course">
+    </section>
+
+    <section class="steps" aria-labelledby="steps-title">
+      <div class="eyebrow">From download to playing in minutes</div>
+      <h2 id="steps-title">Three steps. No extra hardware.</h2>
+      <div class="step-grid">
+        <article><span>01</span><h3>Open FreeWii</h3><p>Install and launch the desktop app. The game menu and local relay start together.</p></article>
+        <article><span>02</span><h3>Scan the code</h3><p>Use your phone camera on the on-screen QR code. Both devices need to be on the same Wi-Fi.</p></article>
+        <article><span>03</span><h3>Start playing</h3><p>Enable motion sensors on your phone, choose a game, and use your phone like a Wii remote.</p></article>
+      </div>
+    </section>
+
+    <section class="downloads" id="downloads" aria-labelledby="downloads-title">
+      <div class="eyebrow">Desktop downloads</div>
+      <h2 id="downloads-title">Pick your computer.</h2>
+      <div class="download-grid">
+        <article><h3>macOS</h3><p>Apple Silicon</p><a href="https://github.com/binemugha/freewii/releases/latest/download/FreeWii-mac-arm64.dmg">Download .dmg</a><p>Intel</p><a href="https://github.com/binemugha/freewii/releases/latest/download/FreeWii-mac-x64.dmg">Download .dmg</a></article>
+        <article><h3>Windows</h3><p>64-bit Windows 10 or later</p><a href="https://github.com/binemugha/freewii/releases/latest/download/FreeWii-win-x64.exe">Download installer</a></article>
+        <article><h3>Linux</h3><p>64-bit x86</p><a href="https://github.com/binemugha/freewii/releases/latest/download/FreeWii-linux-x86_64.AppImage">Download AppImage</a></article>
+      </div>
+      <p class="install-note">The current builds are unsigned. Your operating system may ask for confirmation before opening an app downloaded from the internet. Only install releases from this website or the official GitHub repository.</p>
+      <a class="all-releases" href="https://github.com/binemugha/freewii/releases">View all releases and release notes</a>
+    </section>
+
+    <section class="requirements">
+      <h2>What you need</h2>
+      <p>A computer with WebGL 2, a motion-capable phone, and a shared Wi-Fi network. The phone controller runs in its browser; there is nothing to install on your phone.</p>
+    </section>
+  </main>
+
+  <footer><span>FreeWii is an independent fan project.</span><a href="https://github.com/binemugha/freewii/blob/main/LICENSE">MIT license</a></footer>
+</body>
+</html>

@@ -254,3 +254,5 @@ server.listen(PORT, '0.0.0.0', () => {
   }
   console.log(`${line}\n`);
 });
+
+module.exports = { app, server, io, scheme, port: PORT, controllerUrl };

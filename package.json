@@ -9,11 +9,14 @@
     "url": "git+https://github.com/binemugha/freewii.git"
   },
   "type": "commonjs",
-  "main": "server.js",
+  "main": "desktop/main.js",
   "scripts": {
     "start": "node server.js",
     "tv": "open -na 'Google Chrome' --args --user-data-dir=$HOME/.freewii-chrome --no-first-run --no-default-browser-check --autoplay-policy=no-user-gesture-required --new-window https://localhost:8443/",
     "dev": "node --watch server.js",
+    "desktop": "electron .",
+    "desktop:pack": "electron-builder --dir",
+    "desktop:dist": "electron-builder",
     "cert": "node scripts/gen-cert.js",
     "test": "node tests/kart-prototype/server.cjs",
     "build:kart-assets": "node games/mario-kart/pipeline/build.mjs",
@@ -25,6 +28,7 @@
   "dependencies": {
     "express": "^4.21.2",
     "qrcode": "^1.5.4",
+    "selfsigned": "^4.0.1",
     "socket.io": "^4.8.1",
     "three": "^0.185.1"
   },
@@ -32,6 +36,8 @@
     "node": ">=22"
   },
   "devDependencies": {
+    "electron": "^41.7.1",
+    "electron-builder": "^26.18.0",
     "playwright": "^1.63.0"
   }
 }

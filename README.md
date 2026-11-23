@@ -6,10 +6,32 @@ Scan a QR code to turn your phone into a motion controller—no app or extra
 hardware required. Up to four phones can join the same computer; player counts
 vary by game.
 
-## Quick start
+## Desktop app
 
-Requires **Node.js 22+**, **OpenSSL**, a computer browser with WebGL 2, and a
-motion-capable phone browser on the **same Wi-Fi**.
+**[Download FreeWii for macOS, Windows, or Linux](https://binemugha.github.io/freewii/).**
+The desktop app includes the games and local relay, so it does not require
+Node.js, OpenSSL, or Chrome. Open it, scan the on-screen QR code with your phone,
+and enable motion sensors on the phone's browser. Both devices must be on the
+same Wi-Fi.
+
+To run and package the desktop app from source:
+
+```bash
+npm ci
+npm run desktop       # Development window
+npm run desktop:dist  # Installers for the current OS in dist/
+```
+
+Pushing a tag named `v*` runs the desktop release workflow, builds macOS,
+Windows, and Linux installers, and publishes them to the matching GitHub
+release. The download website links to the latest release. The website deploys
+to GitHub Pages when `website/` changes on `main`.
+
+## Quick start from source
+
+Requires **Node.js 22+**, a computer browser with WebGL 2, and a
+motion-capable phone browser on the **same Wi-Fi**. OpenSSL is optional; the
+server falls back to its bundled JavaScript certificate generator.
 
 ```bash
 git clone https://github.com/binemugha/freewii.git
@@ -36,8 +58,8 @@ play.
 | 🍉 **[Fruit Ninja](games/fruit-ninja/)** | Swing to slice fruit, dodge bombs and build combos. | Up to 4 |
 | 🎳 **[Bowling](games/bowling/)** | Point to aim and swing to bowl through a full ten-frame game. | 1 |
 | 👾 **[Alien Attack](games/alien-attack/)** | Tilt to fly and press A to fire. | 1 |
-| 🎯 **[Shooting Range](games/shooting-range/)** | Point and press A to hit targets against the clock. | 1 |
-| 🎨 **[Sketch](games/drawing/)** | Point and press A to draw. Choose colors, brushes and an eraser. | 1 |
+| 🎯 **[Shooting Range](games/shooting-range/)** | Point to aim and swing to bowl through a full ten-frame game. | 1 |
+| 🎨 **[Sketch](games/drawing/)** | Point to aim and swing to bowl through a full ten-frame game. | 1 |
 
 ## How it works
 
@@ -45,7 +67,7 @@ play.
 flowchart TD
     phone["📱 Phone<br/>a web page acting as the Wii remote<br/><code>public/controller.*</code>"]
     relay["🔀 Node relay<br/>forwards packets, tags players P1 to P4<br/><code>server.js</code>"]
-    browser["🖥 Browser tab<br/>Wii menu + games + motion engine<br/><code>public/menu.js · games/ · core/</code>"]
+    browser["🖥 Browser tab or desktop window<br/>Wii menu + games + motion engine<br/><code>public/menu.js · games/ · core/</code>"]
     phone -- "motion 60/s + buttons" --> relay
     relay -- "same stream, slot-tagged" --> browser
     browser -. "rumble, per player" .-> phone
@@ -62,7 +84,8 @@ stream so it never feels laggy.
 - **Cannot connect:** check both devices are on the same Wi-Fi, allow Node.js
   through the firewall, and avoid guest networks that isolate devices.
 - **Buttons work but motion does not:** check HTTPS and motion permissions. If
-  the terminal reports an HTTP fallback, install OpenSSL and restart.
+  the terminal reports an HTTP fallback, check that the certificate directory
+  is writable, then restart.
 - **Black screen:** enable WebGL 2 / hardware acceleration in the computer browser.
 - **No sound:** click the game to unlock audio and check its mute control.
 

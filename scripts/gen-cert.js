@@ -10,11 +10,12 @@
  */
 
 const { execFileSync } = require('child_process');
+const { X509Certificate } = require('crypto');
 const fs = require('fs');
 const path = require('path');
 const os = require('os');
 
-const CERT_DIR = path.join(__dirname, '..', 'certs');
+const CERT_DIR = process.env.FREEWII_CERT_DIR || path.join(__dirname, '..', 'certs');
 const KEY_PATH = path.join(CERT_DIR, 'key.pem');
 const CRT_PATH = path.join(CERT_DIR, 'cert.pem');
 
@@ -32,9 +33,7 @@ function localAddresses() {
 /** Does the existing cert still cover every address we're about to serve on? */
 function certCoversCurrentIps(quiet) {
   try {
-    const text = execFileSync('openssl', ['x509', '-in', CRT_PATH, '-noout', '-ext', 'subjectAltName'], {
-      encoding: 'utf8',
-    });
+    const text = new X509Certificate(fs.readFileSync(CRT_PATH)).subjectAltName || '';
     const missing = localAddresses().filter((ip) => !text.includes(ip));
     if (missing.length && !quiet) {
       console.log(`[cert] regenerating — cert predates current address ${missing.join(', ')}`);
@@ -56,7 +55,12 @@ function ensureCert({ quiet = false } = {}) {
   fs.mkdirSync(CERT_DIR, { recursive: true });
 
   const ips = localAddresses();
-  const altNames = ['DNS:localhost', 'IP:127.0.0.1', ...ips.map((ip) => `IP:${ip}`)].join(',');
+  const names = [
+    { type: 2, value: 'localhost' },
+    { type: 7, value: '127.0.0.1' },
+    ...ips.map((ip) => ({ type: 7, value: ip })),
+  ];
+  const altNames = names.map((name) => `${name.type === 2 ? 'DNS' : 'IP'}:${name.value}`).join(',');
 
   try {
     execFileSync(
@@ -72,11 +76,35 @@ function ensureCert({ quiet = false } = {}) {
       { stdio: 'ignore' }
     );
   } catch (err) {
-    if (!quiet) {
-      console.error('[cert] openssl failed — falling back to plain HTTP.');
-      console.error('[cert]', err.message);
+    try {
+      const selfsigned = require('selfsigned');
+      const pems = selfsigned.generate([{ name: 'commonName', value: 'freewii.local' }], {
+        keySize: 2048,
+        days: 825,
+        algorithm: 'sha256',
+        extensions: [
+          { name: 'basicConstraints', cA: false, critical: true },
+          { name: 'keyUsage', digitalSignature: true, keyEncipherment: true, critical: true },
+          { name: 'extKeyUsage', serverAuth: true },
+          {
+            name: 'subjectAltName',
+            altNames: names.map((name) => name.type === 7
+              ? { type: 7, value: Buffer.from(name.value.split('.').map(Number)).toString('latin1') }
+              : name),
+          },
+        ],
+      });
+      fs.writeFileSync(KEY_PATH, pems.private, { mode: 0o600 });
+      fs.writeFileSync(CRT_PATH, pems.cert);
+      if (!quiet) console.log(`[cert] generated self-signed cert for ${altNames}`);
+      return { key: pems.private, cert: pems.cert };
+    } catch (fallbackErr) {
+      if (!quiet) {
+        console.error('[cert] certificate generation failed — falling back to plain HTTP.');
+        console.error('[cert]', fallbackErr.message);
+      }
+      return null;
     }
-    return null;
   }
 
   if (!quiet) console.log(`[cert] generated self-signed cert for ${altNames}`);

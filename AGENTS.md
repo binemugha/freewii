@@ -9,6 +9,8 @@ PC. See **README.md** for the architecture and the hard-won gotchas.
 ```
 server.js         Socket.io relay + static serving. Auto-discovers games/.
 public/           Launcher (index.html) + the shared phone controller.
+desktop/          Electron shell; starts the relay and opens the launcher.
+website/          Static desktop-download site deployed to GitHub Pages.
 games/<slug>/     One folder per game, each with its own index.html.
 ```
 

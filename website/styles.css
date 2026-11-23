@@ -1,0 +1,58 @@
+:root {
+  color-scheme: light;
+  --ink: #10213a;
+  --muted: #5c6c81;
+  --blue: #1769e0;
+  --line: #dce5ef;
+  font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: var(--ink);
+  background: #f6f9fc;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; }
+a { color: inherit; }
+.nav, main, footer { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
+.nav { height: 88px; display: flex; align-items: center; justify-content: space-between; }
+.nav > a:last-child { color: var(--muted); text-decoration: none; font-size: 14px; font-weight: 650; }
+.brand { display: flex; align-items: center; gap: 11px; font-size: 22px; font-weight: 800; text-decoration: none; letter-spacing: -.04em; }
+.brand-mark { display: grid; place-items: center; width: 34px; height: 34px; color: white; background: var(--blue); border-radius: 10px; }
+.hero { padding: 82px 0 58px; text-align: center; }
+.eyebrow { color: var(--blue); font-size: 12px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
+h1 { margin: 18px 0 24px; font-size: clamp(54px, 8vw, 92px); line-height: .98; letter-spacing: -.065em; }
+h1 span { color: var(--blue); }
+.intro { max-width: 660px; margin: 0 auto; color: var(--muted); font-size: 19px; line-height: 1.65; }
+.hero-actions { display: flex; justify-content: center; gap: 12px; margin-top: 34px; flex-wrap: wrap; }
+.button { display: inline-flex; align-items: center; justify-content: center; min-height: 52px; padding: 0 24px; border-radius: 12px; text-decoration: none; font-weight: 750; }
+.primary { color: white; background: var(--blue); box-shadow: 0 10px 24px #1769e033; }
+.primary:hover { background: #0e58c4; }
+.secondary { border: 1px solid var(--line); background: white; }
+.release-note { color: var(--muted); font-size: 13px; margin-top: 17px; }
+.preview { padding: 8px; background: white; border: 1px solid var(--line); border-radius: 22px; box-shadow: 0 30px 80px #183a601c; }
+.preview img { display: block; width: 100%; border-radius: 15px; }
+.steps, .downloads { padding: 110px 0 0; }
+h2 { margin: 12px 0 34px; font-size: clamp(32px, 4vw, 46px); letter-spacing: -.045em; }
+.step-grid, .download-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.step-grid article, .download-grid article { padding: 28px; border: 1px solid var(--line); border-radius: 16px; background: white; }
+.step-grid article > span { color: var(--blue); font: 800 13px ui-monospace, monospace; }
+h3 { margin: 18px 0 10px; font-size: 21px; letter-spacing: -.02em; }
+article p, .requirements p { color: var(--muted); line-height: 1.65; }
+.download-grid h3 { margin-top: 0; }
+.download-grid p { margin: 18px 0 6px; font-size: 13px; }
+.download-grid a { color: var(--blue); font-weight: 750; text-decoration: none; }
+.download-grid a:hover, .all-releases:hover { text-decoration: underline; }
+.install-note { max-width: 760px; color: var(--muted); font-size: 13px; line-height: 1.65; margin: 24px 0 10px; }
+.all-releases { color: var(--blue); font-size: 14px; font-weight: 700; text-decoration: none; }
+.requirements { margin-top: 100px; padding: 36px; color: white; background: var(--ink); border-radius: 20px; }
+.requirements h2 { margin: 0 0 10px; font-size: 28px; }
+.requirements p { max-width: 760px; margin: 0; color: #b7c8de; }
+footer { display: flex; justify-content: space-between; gap: 20px; padding: 34px 0 44px; color: var(--muted); font-size: 13px; }
+
+@media (max-width: 720px) {
+  .hero { padding-top: 54px; }
+  .step-grid, .download-grid { grid-template-columns: 1fr; }
+  .steps, .downloads { padding-top: 76px; }
+  .requirements { margin-top: 76px; }
+  footer { flex-direction: column; }
+}
