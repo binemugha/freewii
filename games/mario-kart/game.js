@@ -254,7 +254,7 @@ for (const { mat, geos, cast } of staticGroups.values()) {
   geos.forEach((x) => x.dispose());
 }
 let selected = "mario",
-  selectedLaps = localStorage.getItem("openwii.kart.laps") === "1" ? 1 : 3,
+  selectedLaps = localStorage.getItem("freewii.kart.laps") === "1" ? 1 : 3,
   paused = false,
   race,
   noticeUntil = 0,
@@ -264,7 +264,7 @@ let selected = "mario",
   resultsShown = false, resultsPresentation = null;
 const audio = new KartAudio(),
   wheel = new WheelInput({
-    invert: localStorage.getItem("openwii.chargeInvert2") === "1",
+    invert: localStorage.getItem("freewii.chargeInvert2") === "1",
   }),
   keys = new Set();
 let captureUntil = performance.now() + 3000,
@@ -492,7 +492,7 @@ function selectLaps(laps) {
   if (race.state !== 'ready' || starting) return;
   selectedLaps = laps === 1 ? 1 : 3;
   race.laps = selectedLaps;
-  localStorage.setItem('openwii.kart.laps', String(selectedLaps));
+  localStorage.setItem('freewii.kart.laps', String(selectedLaps));
   syncLapOptions();
   audio.ui('cursor');
 }
@@ -627,7 +627,7 @@ window.addEventListener("keydown", (e) => {
   }
   if (e.code === "KeyI") {
     wheel.invert = !wheel.invert;
-    localStorage.setItem("openwii.chargeInvert2", wheel.invert ? "1" : "0");
+    localStorage.setItem("freewii.chargeInvert2", wheel.invert ? "1" : "0");
   }
 });
 window.addEventListener("keyup", (e) => keys.delete(e.code));

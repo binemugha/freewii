@@ -1,4 +1,4 @@
-# OpenWii
+# FreeWii
 
 Motion-controlled games for the browser — the player's phone is the remote. A
 Node/Socket.io relay streams phone IMU data over the LAN to a game running on the

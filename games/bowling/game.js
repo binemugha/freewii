@@ -574,7 +574,7 @@ syncHud();
 channel.audio.unlock();
 requestAnimationFrame(frame);
 
-window.__openwii = {
+window.__freewii = {
   game, channel, scene, camera, renderer, startGame, desktopThrow, syncScene,
   fps: () => fps,
 };

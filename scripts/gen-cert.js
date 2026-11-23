@@ -66,7 +66,7 @@ function ensureCert({ quiet = false } = {}) {
         '-keyout', KEY_PATH,
         '-out', CRT_PATH,
         '-days', '825',
-        '-subj', '/CN=openwii.local',
+        '-subj', '/CN=freewii.local',
         '-addext', `subjectAltName=${altNames}`,
       ],
       { stdio: 'ignore' }

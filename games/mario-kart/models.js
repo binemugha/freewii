@@ -160,7 +160,7 @@ export function disposeModel(root) {
   });
 }
 export function rigWheels(model) {
-  const source = model.getObjectByName('openwii-source-kart')?.userData.openwiiSourcePack===1;
+  const source = model.getObjectByName('freewii-source-kart')?.userData.freewiiSourcePack===1;
   return [0, 1, 2, 3].map((i) => {
     const wheel = model.getObjectByName("wheel-" + i);
     if (!wheel || wheel.userData.rolling) return wheel;
@@ -377,7 +377,7 @@ export function makeGlider(color,characterId) {
 function finishKart(root, character) {
   // Optional local source packs already contain their authored texture materials,
   // seated skeleton and wheel pivots. Flattening them would discard skinning.
-  if (root.getObjectByName("openwii-source-kart")?.userData.openwiiSourcePack === 1) return;
+  if (root.getObjectByName("freewii-source-kart")?.userData.freewiiSourcePack === 1) return;
   const pool = new Map(),
     groups = new Map(),
     remove = [];

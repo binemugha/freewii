@@ -1,10 +1,10 @@
 /** The source TV surfaces use framebuffer V-down coordinates, unlike the signs. */
 export function orientSourceScreen(mesh) {
-  if(!mesh.isMesh||!['fc_TV_MKTV','fc_TV_capture'].includes(mesh.material.name)||mesh.userData.openwiiScreenUpright)return false;
+  if(!mesh.isMesh||!['fc_TV_MKTV','fc_TV_capture'].includes(mesh.material.name)||mesh.userData.freewiiScreenUpright)return false;
   mesh.geometry=mesh.geometry.clone();
   const uv=mesh.geometry.attributes.uv;
   for(let i=0;i<uv.count;i++)uv.setY(i,1-uv.getY(i));
-  uv.needsUpdate=true;mesh.userData.openwiiScreenUpright=true;
+  uv.needsUpdate=true;mesh.userData.freewiiScreenUpright=true;
   return true;
 }
 

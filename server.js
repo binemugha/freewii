@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * OpenWii — LAN relay server.
+ * FreeWii — LAN relay server.
  *
  * Serves the clients and pipes messages between them:
  *   /                     → game launcher
@@ -226,7 +226,7 @@ io.on('connection', (socket) => {
 server.listen(PORT, '0.0.0.0', () => {
   const line = '─'.repeat(52);
   console.log(`\n${line}`);
-  console.log('  🕹  OpenWii — your phone is the remote');
+  console.log('  🕹  FreeWii — your phone is the remote');
   console.log(line);
   console.log(`  Launcher      ${scheme}://localhost:${PORT}/`);
   console.log(`  Phone remote  ${controllerUrl}`);
@@ -247,7 +247,7 @@ server.listen(PORT, '0.0.0.0', () => {
   // HTTP dev mode and NO_OPEN=1 skip this.
   if (tls && process.platform === 'darwin' && !process.env.NO_OPEN) {
     exec('open -na "Google Chrome" --args'
-      + ' --user-data-dir="$HOME/.openwii-chrome" --no-first-run --no-default-browser-check'
+      + ' --user-data-dir="$HOME/.freewii-chrome" --no-first-run --no-default-browser-check'
       + ` --autoplay-policy=no-user-gesture-required --new-window https://localhost:${PORT}/`);
     console.log('\n  📺 Opening the console in Chrome (autoplay enabled)…');
     console.log('     Skip with NO_OPEN=1 npm start.');

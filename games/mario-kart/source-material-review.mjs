@@ -16,7 +16,7 @@ try{
  await page.evaluate(async()=>{
   __kart.freeze=true;
   const {isSourceAsphalt}=await import('./source-materials.js');
-  const root=__kart.karts[0].root.parent.getObjectByName('openwii-source-stadium');
+  const root=__kart.karts[0].root.parent.getObjectByName('freewii-source-stadium');
   const mats=new Set();root.traverse(o=>{if(o.material&&isSourceAsphalt(o.material.name))mats.add(o.material)});
   window.__reviewMats=[...mats].map(m=>({m,normal:m.normalScale.clone(),roughness:m.roughness,env:m.envMapIntensity,color:m.color.clone()}));
  });

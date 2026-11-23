@@ -1,12 +1,12 @@
 {
-  "source": "Nintendo Mario Kart 8 assets, The Models Resource; not original OpenWii artwork or covered by its software license",
+  "source": "Nintendo Mario Kart 8 assets, The Models Resource; not original FreeWii artwork or covered by its software license",
   "page": "https://models.spriters-resource.com/wii_u/mariokart8/asset/293504/",
   "credits": [
     "Nintendo",
     "RayK (course submission)"
   ],
   "convertedAt": "2026-09-11T10:55:20.290Z",
-  "sha256": "b4bfefbc8bc6e143971e5b6564be4bafcbb0a3b1db10c2960b097e6236ce64cb",
+  "sha256": "11435cda10c1b2981d1e29554ac0b45832174b821d5dd4294bf2764afa378319",
   "routeSha256": "0767485d7125aace521e1b6548a3c2d4f6853ed5c6c302d6a65bd537908f0232",
   "sourceFiles": {
     "Mario Kart Stadium.mtl": "ef9414513c551bcf9177b8c1db11d8f624ec1c80d6bd027840163e83e159ac4c",
@@ -236,13 +236,13 @@
     "ufc_yellowwall_alb.png": "344e45025e2c13e228bae2db0d792562cba2b2c2613959da4fe3a9f5b35afc3e"
   },
   "converters": {
-    "source-stadium.js": "a23bcd23b873aec7bd2fe069534b810872562d246f91bb770798955f4a625ba1",
+    "source-stadium.js": "b49b378ee76ace543a0eb5cbf3a01b88c840467e916ff601f3b23b2a574ab840",
     "stadium-build.html": "af1cea2408b4cc1a85631093e23723cabff633cad19dc0773aa17de25da83fef",
-    "build-source-stadium.mjs": "01a6ec32abcae029a02d02c6e4d462ab920e991d248b43f7cc3b6c31b5c91c6f",
+    "build-source-stadium.mjs": "28309b70d636dc649f38d5063af0cc97a03f9710b6ab8d487d3e4072eb062743",
     "source-road.py": "5609af84859fbddf4b2941c02bbf144c3ef561385014f3c1361461abadd39dac",
-    "source-surface.py": "d76829b7c980b683b7c10dfa6e003de471a2805930eb7c5871161512dd8bed9c",
+    "source-surface.py": "6bc25bee3fba82f226f41325100d465012794756e3963c8472fad19cc1b7d98f",
     "../source-visible.js": "17d7c757c6d31a42488ab7da4f8deef4d0acc888d5815464fa5e43dc0cd69d11",
-    "../source-materials.js": "a4c12c78e895c2ec063c922ac87cf61281f5f443986313c74e3de2538827959c"
+    "../source-materials.js": "11727abd8dd526d4a3f4e7be5cf0b7ee292e2c89fe62c6637bb7740789f974d5"
   },
   "selectedForGameplay": false,
   "routeRevision": {

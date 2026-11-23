@@ -346,7 +346,7 @@ let qrImg = null;            // pairing QR, drawn inside the right-hand button
 /**
  * The original bar: a silver band whose top edge sweeps up around a round
  * button at each end, an aqua line tracing the edge, the clock dead centre in
- * quiet LCD grey. Left button says OpenWii; the right one — the console's
+ * quiet LCD grey. Left button says FreeWii; the right one — the console's
  * envelope — is our pairing QR instead.
  */
 function drawBar() {
@@ -417,7 +417,7 @@ function drawBar() {
   g.font = `700 ${Math.round(r * 0.42)}px -apple-system, system-ui, sans-serif`;
   g.textAlign = 'center';
   g.textBaseline = 'middle';
-  g.fillText('OpenWii', lx, cy + 2);
+  g.fillText('FreeWii', lx, cy + 2);
 
   button(rx, qrHover, 0);
   if (qrImg && qrImg.complete) {
@@ -767,7 +767,7 @@ function launch(tile) {
   // The receiving game page opens on this same banner and fades it out — one
   // continuous motion across the navigation, no flash.
   try {
-    sessionStorage.setItem('openwii.launch', JSON.stringify({
+    sessionStorage.setItem('freewii.launch', JSON.stringify({
       slug: tile.game.slug, title: tile.game.title, emoji: tile.game.emoji || '🎮',
       c0, c1, t: Date.now(),
     }));
@@ -807,7 +807,7 @@ function hitTest(wx, wy) {
       && Math.abs(wy - a.mesh.position.y) < 0.85 * L.scale) return a;
   }
   if (wy < barMesh.position.y + BAR_H / 2 + 0.2 && wy > barMesh.position.y - BAR_H / 2) {
-    // The two round bar buttons: OpenWii on the left, the pairing QR right.
+    // The two round bar buttons: FreeWii on the left, the pairing QR right.
     const cy = barMesh.position.y + BAR_H / 2 - BAR_H * 0.56;
     const cx = barW / 2 - BAR_H * 0.62;
     const r = BAR_H * 0.48;
@@ -972,7 +972,7 @@ fetch('/api/pairing').then((r) => r.json()).then(({ qr }) => {
   qrImg.src = qr;
 }).catch(() => {});
 
-const hoverName = (h) => (h === 'wii' ? 'OpenWii button'
+const hoverName = (h) => (h === 'wii' ? 'FreeWii button'
   : h === 'qr' ? 'QR button'
     : h && h.dir !== undefined ? 'arrow'
       : h && h.game ? h.game.title : '—');
@@ -1003,11 +1003,11 @@ setInterval(() => {
   let fromHome = false;
   let homeChimed = false;
   try {
-    const homeAt = Number(sessionStorage.getItem('openwii.home') || 0);
-    sessionStorage.removeItem('openwii.home');
+    const homeAt = Number(sessionStorage.getItem('freewii.home') || 0);
+    sessionStorage.removeItem('freewii.home');
     fromHome = Date.now() - homeAt < 4000;
-    homeChimed = sessionStorage.getItem('openwii.homeChimed') === '1';
-    sessionStorage.removeItem('openwii.homeChimed');
+    homeChimed = sessionStorage.getItem('freewii.homeChimed') === '1';
+    sessionStorage.removeItem('freewii.homeChimed');
   } catch { /* storage unavailable */ }
 
   const veil = document.createElement('div');
@@ -1036,7 +1036,7 @@ drawBar();
 resize();
 requestAnimationFrame(frame);
 
-window.__openwii = {
+window.__freewii = {
   scene, camera, renderer, tiles, arrows, pointer: inputFor(0).pointer, inputs, audio, link,
   hitTest, toWorld, pressA, pressB, step, layout: L,
   state: () => ({

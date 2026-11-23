@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedBy": "OpenWii local pipelines: original models plus Nintendo source conversions",
+  "generatedBy": "FreeWii local pipelines: original models plus Nintendo source conversions",
   "characters": [
     {
       "id": "mario",

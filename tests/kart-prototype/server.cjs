@@ -1,5 +1,5 @@
 'use strict';
-// Dedicated prototype runner. Does not import or start OpenWii's server.js.
+// Dedicated prototype runner. Does not import or start FreeWii's server.js.
 const express = require('express');
 const https = require('https');
 const path = require('path');

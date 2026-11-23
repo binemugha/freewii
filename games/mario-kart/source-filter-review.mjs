@@ -15,7 +15,7 @@ try{
  await page.waitForFunction(()=>__kart.race.state==='racing'&&__kart.race.time>4);
  await page.evaluate(()=>{__kart.freeze=true});
  report.loaded=await page.evaluate(()=>{
-  const root=__kart.karts[0].root.parent.getObjectByName('openwii-source-stadium');
+  const root=__kart.karts[0].root.parent.getObjectByName('freewii-source-stadium');
   if(!root)throw Error('source root missing');
   const rows=[],seen=new Set();root.traverse(o=>{for(const mat of [o.material].flat()){if(!mat)continue;for(const [slot,t] of Object.entries(mat))if(t?.isTexture&&!seen.has(t.uuid)){seen.add(t.uuid);rows.push({material:mat.name,slot,width:t.image?.width,height:t.image?.height,anisotropy:t.anisotropy,minFilter:t.minFilter});}}});return rows;
  });
@@ -24,7 +24,7 @@ try{
   await page.evaluate(s=>{__kart.place(s);const r=__kart.race.player;r.gliding=false;r.spin=0;r.drift=0;},s);
   const cameras=[];
   for(const anisotropy of [1,8]){
-   await page.evaluate(a=>{const root=__kart.karts[0].root.parent.getObjectByName('openwii-source-stadium');root.traverse(o=>{for(const m of [o.material].flat()){if(!m)continue;for(const t of Object.values(m))if(t?.isTexture&&!t.isRenderTargetTexture){t.anisotropy=a;t.needsUpdate=true;}}});},anisotropy);
+   await page.evaluate(a=>{const root=__kart.karts[0].root.parent.getObjectByName('freewii-source-stadium');root.traverse(o=>{for(const m of [o.material].flat()){if(!m)continue;for(const t of Object.values(m))if(t?.isTexture&&!t.isRenderTargetTexture){t.anisotropy=a;t.needsUpdate=true;}}});},anisotropy);
    const n=await page.evaluate(()=>__kart.renderCount);await page.waitForFunction(n=>__kart.renderCount>n+8,n);
    cameras.push(await page.evaluate(()=>__kart.cameraState));
    await page.screenshot({path:`${out}/${name}-${anisotropy}.png`});

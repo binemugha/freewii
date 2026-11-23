@@ -348,7 +348,7 @@ let started = false;
 
 // Failsafe for the one thing only a real hand can prove: if steering ever
 // feels backwards on a device, press I once and it sticks.
-let invertSteer = localStorage.getItem('openwii.chargeInvert2') === '1';
+let invertSteer = localStorage.getItem('freewii.chargeInvert2') === '1';
 let trayRef = null;                  // captured neutral; null = capture next sample
 let steerFilter = new SteerFilter();
 let captureNotBefore = 0;            // boot grace: time to lay the phone flat
@@ -426,7 +426,7 @@ window.addEventListener('keydown', (e) => {
   keys[e.key] = true;
   if (e.key.toLowerCase() === 'i') {
     invertSteer = !invertSteer;
-    localStorage.setItem('openwii.chargeInvert2', invertSteer ? '1' : '0');
+    localStorage.setItem('freewii.chargeInvert2', invertSteer ? '1' : '0');
     popup(invertSteer ? 'steering inverted' : 'steering normal');
   }
 });

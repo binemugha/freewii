@@ -1,6 +1,6 @@
 # Original turf texture
 
-`turf-v1.png` was generated with the built-in image_gen tool on 2026-09-11 for OpenWii. No game assets or reference screenshots were used as image inputs. The original generated PNG is preserved without pixel edits.
+`turf-v1.png` was generated with the built-in image_gen tool on 2026-09-11 for FreeWii. No game assets or reference screenshots were used as image inputs. The original generated PNG is preserved without pixel edits.
 
 Final prompt:
 

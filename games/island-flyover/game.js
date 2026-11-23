@@ -227,7 +227,7 @@ camera.position.set(0, 90, 560);
 camera.lookAt(0, 20, 0);
 requestAnimationFrame(frame);
 
-window.__openwii = {
+window.__freewii = {
   flight, channel, pointer: channel.pointer, scene, camera, renderer, step,
   startFlight, ringMeshes, fps: () => fps,
 };

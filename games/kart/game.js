@@ -287,7 +287,7 @@ camera.position.set(s0.x, 30, s0.z + 60);
 camera.lookAt(s0.x, 0, s0.z);
 requestAnimationFrame(frame);
 
-window.__openwii = {
+window.__freewii = {
   race, channel, pointer: channel.pointer, scene, camera, renderer, step,
   startRace, kart, ghostKart, fps: () => fps,
 };

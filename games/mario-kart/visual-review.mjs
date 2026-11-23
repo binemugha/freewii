@@ -80,7 +80,7 @@ try {
         if (o.isMesh && o.material?.map?.image?.width > 0) textures++;
       });
       return { name: k.id, coloredMeshes: colors, texturedMeshes: textures,
-        sourcePack: k.model.getObjectByName("openwii-source-kart")?.userData.openwiiSourcePack === 1 };
+        sourcePack: k.model.getObjectByName("freewii-source-kart")?.userData.freewiiSourcePack === 1 };
     }),
   );
   assert.ok(report.vertexShading.every((k) => k.sourcePack ? k.texturedMeshes >= 8 : k.coloredMeshes > 0),

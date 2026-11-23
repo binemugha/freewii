@@ -1,4 +1,4 @@
-# 🕹 OpenWii
+# 🕹 FreeWii
 
 Your phone is the controller. Your computer runs the games.
 
@@ -25,7 +25,7 @@ npm start
 3. Choose a game and follow its controls. Stop the server with **Ctrl+C**.
 
 **Phone motion requires HTTPS.** Use the QR code or the terminal's **Phone remote**
-address, not `localhost` on your phone. OpenWii is designed for shared local-network
+address, not `localhost` on your phone. FreeWii is designed for shared local-network
 play.
 
 ## Games
@@ -51,7 +51,7 @@ flowchart TD
     browser -. "rumble, per player" .-> phone
 ```
 
-A real Wii needs an IR sensor bar to know where the remote points; OpenWii replaces it with pure software. The
+A real Wii needs an IR sensor bar to know where the remote points; FreeWii replaces it with pure software. The
 engine learns each phone's gyro axis conventions from its own data at runtime
 (they genuinely differ between devices), heals drift back toward the true pose
 between swings, and dead-reckons the cursor slightly ahead of the packet

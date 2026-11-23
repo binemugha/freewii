@@ -32,7 +32,7 @@ import {
  * would make the keyboard-free menu→game→menu loop miserable. Calibrate once at
  * the menu; every channel inherits it.
  */
-const STORAGE_KEY = 'openwii.calibration.v1';
+const STORAGE_KEY = 'freewii.calibration.v1';
 
 /**
  * The server's boot id, fetched once per page. Calibration is scoped to it, so
@@ -88,7 +88,7 @@ export function clearCalibration() {
  */
 // v2: the pointer's base speed was rebased (30°→20° per screen), so stored
 // v1 percentages meant a different physical speed and start fresh here.
-const SENSITIVITY_KEY = 'openwii.sensitivity.v2';
+const SENSITIVITY_KEY = 'freewii.sensitivity.v2';
 
 export function saveSensitivity(v) {
   try { localStorage.setItem(SENSITIVITY_KEY, String(v)); } catch { /* ignore */ }

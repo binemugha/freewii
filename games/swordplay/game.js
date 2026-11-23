@@ -286,7 +286,7 @@ resize();
 syncHud();
 requestAnimationFrame(frame);
 
-window.__openwii = {
+window.__freewii = {
   duel, channel, pointer: channel.pointer, swingDetector,
   scene, camera, renderer, step, sword, startMatch,
   fps: () => fps,

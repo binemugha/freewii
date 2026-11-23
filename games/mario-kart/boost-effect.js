@@ -35,7 +35,7 @@ export function makeBoostEffect(){
 }
 export function updateBoostEffect(effect,model,boost,time){
  if(effect.userData.model!==model){
-  let source=false;model.traverse(o=>{if(o.userData.openwiiSourcePack)source=true;});
+  let source=false;model.traverse(o=>{if(o.userData.freewiiSourcePack)source=true;});
   if(source!==effect.userData.source){effect.geometry.dispose();effect.geometry=geometry(source);effect.userData.source=source;}
   effect.userData.model=model;
  }

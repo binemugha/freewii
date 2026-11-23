@@ -5,7 +5,7 @@
     "sha256": "906d11fe3af9b52c96afffd180c71c8a3dc4ba624b62c4b293112811758e6e71",
     "retrievedAt": "2026-09-11T11:42:22.386688+00:00",
     "uploader": "RayK",
-    "licenseNote": "Nintendo source artwork, not original OpenWii assets or covered by MIT software license; local ignored pack."
+    "licenseNote": "Nintendo source artwork, not original FreeWii assets or covered by MIT software license; local ignored pack."
   },
   "sharedSources": [
     "https://models.spriters-resource.com/wii_u/mariokart8/asset/293519/",
@@ -17,10 +17,10 @@
     "BillyGaming964 (tire submission)"
   ],
   "convertedAt": "2026-09-11T16:55:05.398Z",
-  "sha256": "de530228856896fb5ab3d55dadf2bde539a676fa9ec5f9f15383b4e93ac2cd26",
+  "sha256": "12822eac764ec8ec29f5660cfc1d2de8a1a929781ba2ebdc687aa50ac95b0dbe",
   "converters": {
     "source-rivals.js": "e0be36abce64de99236f619829651f970159e4386d469a1098e53b80e8aa5c72",
-    "source-models.js": "b064c526fecd2342c77cdd0ee711b6718b317d2c8925cdd812906667417d7f88",
+    "source-models.js": "2a92171c66e8157ff46d9e1e2252d96eeb09046b9017bc7f3ad9f4625709f124",
     "source-pose.js": "29da49a00f7948d388c79dd9769b85fb9adeedda4f5005a1c7ba94c546812712",
     "source-build.html": "aa9415639edb15ae79fb6d33c76b8abdbbab29acb584cf92cdfaa614bdfb4d14",
     "build-source-rivals.mjs": "a41c715e9881f16d73eab95798157d75d5b1efdf7448176a0e36e14ca39d0dd8"

@@ -1,4 +1,4 @@
-# Mario Kart for OpenWii
+# Mario Kart for FreeWii
 
 A fan-made browser racing game with your phone as the steering wheel. Choose
 one of eight drivers and race seven CPU opponents for one or three laps, with

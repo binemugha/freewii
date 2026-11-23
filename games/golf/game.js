@@ -235,7 +235,7 @@ camera.position.set(0, terrainHeight(0, 14) + 8, 14);
 camera.lookAt(0, 0, -40);
 requestAnimationFrame(frame);
 
-window.__openwii = {
+window.__freewii = {
   hole, channel, pointer: channel.pointer, scene, camera, renderer, step, startRound,
   fps: () => fps,
 };

@@ -22,7 +22,7 @@ export function goHome(audio) {
     audio.unlock().then((ok) => {
       if (!ok) return;
       audio.loadOverride('menu-back').then(() => audio.play('menu-back'));
-      try { sessionStorage.setItem('openwii.homeChimed', '1'); } catch { /* fine */ }
+      try { sessionStorage.setItem('freewii.homeChimed', '1'); } catch { /* fine */ }
     }).catch(() => {});
   }
   const el = document.createElement('div');
@@ -30,16 +30,16 @@ export function goHome(audio) {
     + 'transition:opacity .5s ease;z-index:999;pointer-events:none;';
   document.body.appendChild(el);
   requestAnimationFrame(() => { el.style.opacity = '1'; });
-  try { sessionStorage.setItem('openwii.home', String(Date.now())); } catch { /* fine */ }
+  try { sessionStorage.setItem('freewii.home', String(Date.now())); } catch { /* fine */ }
   setTimeout(() => { window.location.href = '/'; }, 950);
 }
 
 export function consumeLaunchSplash() {
   let data;
   try {
-    const raw = sessionStorage.getItem('openwii.launch');
+    const raw = sessionStorage.getItem('freewii.launch');
     if (!raw) return;
-    sessionStorage.removeItem('openwii.launch');
+    sessionStorage.removeItem('freewii.launch');
     data = JSON.parse(raw);
   } catch {
     return;

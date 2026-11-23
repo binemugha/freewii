@@ -1,6 +1,6 @@
 # Mario Kart runtime pack
 
-This folder contains the selected runtime files used by OpenWii's polished demo.
+This folder contains the selected runtime files used by FreeWii's polished demo.
 The game loads `manifest.json` and `audio/manifest.json` automatically. No asset
 conversion or additional downloads are required for normal play.
 
@@ -14,8 +14,8 @@ conversion or additional downloads are required for normal play.
 - UI lettering and portraits: derived from an extracted game UI sheet; see
   `ui/provenance.json`. Stadium TV artwork has its own provenance record.
 
-These Nintendo assets are not original OpenWii artwork and are not covered by
-OpenWii's MIT software license. Attribution does not grant redistribution rights
+These Nintendo assets are not original FreeWii artwork and are not covered by
+FreeWii's MIT software license. Attribution does not grant redistribution rights
 or imply endorsement by Nintendo or the community uploaders.
 
 Only the selected runtime files and provenance records are included. Original

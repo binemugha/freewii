@@ -212,7 +212,7 @@ resize();
 syncHud();
 requestAnimationFrame(frame);
 
-window.__openwii = {
+window.__freewii = {
   rally, channel, pointer: channel.pointer, scene, camera, renderer, step, startGame,
   fps: () => fps,
 };

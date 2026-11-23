@@ -19,7 +19,7 @@ No code, track mesh, or character asset from those projects is copied. Technique
 
 ## Control decision
 
-Reuse `captureTray`, `trayRead`, `SteerFilter` and `STEER_FULL` directly from Alien Attack. Keep its existing `openwii.chargeInvert2` preference. Capture only a stable, near-level landscape tray during the countdown; ambiguous/wrong-time capture yields neutral steering plus visible recenter guidance. During racing do not silently learn a deliberate held corner. Input is absolute steering, never integrated angular sensor rate. Race simulation uses a fixed 120 Hz step, independent from rendering and packet cadence.
+Reuse `captureTray`, `trayRead`, `SteerFilter` and `STEER_FULL` directly from Alien Attack. Keep its existing `freewii.chargeInvert2` preference. Capture only a stable, near-level landscape tray during the countdown; ambiguous/wrong-time capture yields neutral steering plus visible recenter guidance. During racing do not silently learn a deliberate held corner. Input is absolute steering, never integrated angular sensor rate. Race simulation uses a fixed 120 Hz step, independent from rendering and packet cadence.
 
 ## Visual iteration 2
 
@@ -36,10 +36,10 @@ Applied physically distinct clear-coated paint, metal, rubber and cloth followin
 - [Bradley’s Odyssey promo model](https://bradleyisgone.gumroad.com/l/SMOMario): detailed cap, hair and clothing visible in creator preview; $0+ checkout, 110 MB. Product description does not specify redistribution terms. Reference only for now.
 - [Nicholas Sceusa’s Mario](https://blendswap.com/blend/14925): CC-BY-NC; not selected for this broadly shared project.
 
-These are availability observations, not a license clearance. No assets from these pages were downloaded or copied into OpenWii.
+These are availability observations, not a license clearance. No assets from these pages were downloaded or copied into FreeWii.
 
 ### Local source course conversion (overnight pass 35 follow-on)
 
-The Models Resource's [Mario Kart Stadium archive](https://models.spriters-resource.com/wii_u/mariokart8/asset/293504/) is a complete Nintendo MK8 course OBJ/MTL/texture bundle, submitted by RayK. Downloaded the ordinary public ZIP into ignored local evidence and preserved its SHA256/page URL in `evidence/asset-study/stadium-source.json`. It is not original OpenWii artwork or covered by the repository's software license.
+The Models Resource's [Mario Kart Stadium archive](https://models.spriters-resource.com/wii_u/mariokart8/asset/293504/) is a complete Nintendo MK8 course OBJ/MTL/texture bundle, submitted by RayK. Downloaded the ordinary public ZIP into ignored local evidence and preserved its SHA256/page URL in `evidence/asset-study/stadium-source.json`. It is not original FreeWii artwork or covered by the repository's software license.
 
 A reproducible local conversion now yields an ignored 70-mesh GLB and a measured 3D route, independently checked against exported road triangles. Source-derived coordinates and converted textures stay under ignored assets/evidence; no course is selected for gameplay yet. See `OVERNIGHT-LOOP.md` and `pipeline/SOURCE-ASSETS.md` for the exact distinction between the verified playable Mario replacement and the course integration experiment.

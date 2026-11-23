@@ -1237,7 +1237,7 @@ requestAnimationFrame(frame);
 // Exposed for the verification harness. `pointer` is slot 0's, kept for
 // scripts written against the old single-player shape; `inputs` is the full
 // per-slot map for multiplayer-aware verification.
-window.__openwii = {
+window.__freewii = {
   game, pointer: inputFor(0).pointer, inputs, audio, link, toWorld, toScreen,
   scene, camera, renderer, meshes, splats, visuals,
   syncScene, drawTrail, pruneMeshes,

@@ -8,7 +8,7 @@ From the repository root:
 npm run test
 ```
 
-It starts its own HTTPS process on **8444**, opens the scene, and shows a phone-pairing QR code. The normal OpenWii server and launcher are not required.
+It starts its own HTTPS process on **8444**, opens the scene, and shows a phone-pairing QR code. The normal FreeWii server and launcher are not required.
 
 1. Keep the computer and phone on the same Wi-Fi.
 2. Scan the QR. Accept the local certificate warning, then enable motion on the phone.
@@ -43,7 +43,7 @@ These are reconstructed demonstration stages for the build video, not recovered 
 
 ## Implementation
 
-`server.cjs` is a dedicated HTTPS relay and file allowlist. It reuses the controller layout, local certificate helper, and calibrated `WheelInput`; it never starts or imports root `server.js`. Controller audio is disabled in the test server's served response, leaving production controller files unchanged. The driving geometry and fixed-step `physics.mjs` are independent of the full game's visuals. `showcase.mjs` lazily loads the finished model and the production stadium visual helpers, without loading gameplay or audio. The test does not appear in the OpenWii launcher.
+`server.cjs` is a dedicated HTTPS relay and file allowlist. It reuses the controller layout, local certificate helper, and calibrated `WheelInput`; it never starts or imports root `server.js`. Controller audio is disabled in the test server's served response, leaving production controller files unchanged. The driving geometry and fixed-step `physics.mjs` are independent of the full game's visuals. `showcase.mjs` lazily loads the finished model and the production stadium visual helpers, without loading gameplay or audio. The test does not appear in the FreeWii launcher.
 
 ```sh
 NO_OPEN=1 npm run test       # Print URLs without opening a browser

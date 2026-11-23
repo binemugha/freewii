@@ -106,7 +106,7 @@ function effects(dt){
  });sparks.instanceMatrix.needsUpdate=true;sparks.instanceColor.needsUpdate=true;
  flames.visible=sim.boost>0;flames.scale.z=1+Math.sin(sim.time*65)*.18;
 }
-const wheel=new WheelInput({invert:localStorage.getItem('openwii.chargeInvert2')==='1'});let connected=false,everConnected=false,paused=false;
+const wheel=new WheelInput({invert:localStorage.getItem('freewii.chargeInvert2')==='1'});let connected=false,everConnected=false,paused=false;
 const link=new GameLink({
  onOrientation:(sample,slot)=>{if(slot===0)wheel.sample(sample,performance.now(),{canCapture:Math.abs(sim.speed)<.5});},
  onCommand:(cmd,slot)=>{
@@ -137,7 +137,7 @@ window.addEventListener('keydown',e=>{
  keys.add(e.code);if(e.repeat)return;
  if(/^(Digit|Numpad)[0-5]$/.test(e.code)){e.preventDefault();selectShowcase(Number(e.code.at(-1)));return;}
  if(e.code==='KeyR')reset();if(e.code==='KeyP')togglePairing();if(e.code==='KeyF')fullscreen();
- if(e.code==='KeyI'){wheel.invert=!wheel.invert;localStorage.setItem('openwii.chargeInvert2',wheel.invert?'1':'0');}
+ if(e.code==='KeyI'){wheel.invert=!wheel.invert;localStorage.setItem('freewii.chargeInvert2',wheel.invert?'1':'0');}
 });
 window.addEventListener('keyup',e=>keys.delete(e.code));
 window.addEventListener('blur',()=>keys.clear());

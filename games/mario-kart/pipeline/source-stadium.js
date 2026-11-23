@@ -77,9 +77,9 @@ export async function assembleSourceStadium(base, files, transform) {
     o.geometry = mergeVertices(o.geometry, .0001);
     o.castShadow = o.receiveShadow = true;
   });
-  root.name = 'openwii-source-stadium';
+  root.name = 'freewii-source-stadium';
   root.userData.source = 'Nintendo Mario Kart 8 / The Models Resource; local conversion';
-  root.userData.openwiiSourceCourse = 1;
+  root.userData.freewiiSourceCourse = 1;
   root.scale.setScalar(transform.scale);
   root.position.fromArray(transform.origin).multiplyScalar(-transform.scale);
   root.updateMatrixWorld(true);

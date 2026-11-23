@@ -27,7 +27,7 @@ await writeFile(
   JSON.stringify(
     {
       version: 1,
-      generatedBy: "Original OpenWii Blender pipeline",
+      generatedBy: "Original FreeWii Blender pipeline",
       characters: CHARACTERS.map((c) => ({ id: c.id, file: c.id + ".glb" })),
     },
     null,

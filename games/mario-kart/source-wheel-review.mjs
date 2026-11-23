@@ -22,7 +22,7 @@ try{
        let tire;w.traverse(o=>{if(o.isMesh&&o.material.emissiveMap)tire=o;});const m=tire.material;
        return {sourceMesh:!!tire,axleDotNormal:Math.abs(axis.dot(n)),emission:m.emissiveIntensity,hasEmissionMap:!!m.emissiveMap,hasDiffuseMap:!!m.map,
          flatOverlay:!!w.userData.glow,vertices:tire.geometry.attributes.position.count,shaderKey:m.customProgramCacheKey(),starClone:!!tire.userData.starMat};
-     }),otherWheels:__kart.karts.slice(1).map(other=>{let source=false;other.model.traverse(o=>{if(o.userData.openwiiSourcePack)source=true;});return {id:other.id,source,overlays:other.wheels.map(w=>!!w.userData.glow)};})};
+     }),otherWheels:__kart.karts.slice(1).map(other=>{let source=false;other.model.traverse(o=>{if(o.userData.freewiiSourcePack)source=true;});return {id:other.id,source,overlays:other.wheels.map(w=>!!w.userData.glow)};})};
    },{name,anti});
    report.cases.push(result);await page.screenshot({path:`${out}/wheel-${name}.png`});
    for(const wheel of result.wheels){assert.ok(wheel.sourceMesh&&wheel.hasEmissionMap&&wheel.hasDiffuseMap);assert.equal(wheel.flatOverlay,false);assert.ok(anti?wheel.axleDotNormal>.99:wheel.axleDotNormal<.01);assert.ok(anti?wheel.emission>2.7:wheel.emission<.01);assert.equal(wheel.shaderKey,'source-tire-antigravity-v1');if(star)assert.ok(wheel.starClone);}

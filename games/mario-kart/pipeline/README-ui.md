@@ -6,7 +6,7 @@ Sources inspected September 15, 2026:
 
 - [Fonts, uploaded by Random Talking Bush](https://www.spriters-resource.com/wii_u/mariokart8/asset/69863/): `turbo_MessageFontOutline_50_US_62x77.png` and `turbo_DigitalNum_51x75.png`.
 - [Character menu icons, uploaded by Random Talking Bush](https://www.spriters-resource.com/wii_u/mariokart8/asset/68237/).
-- [GameXplain native menu tour](https://www.youtube.com/watch?v=4wlwytZVknM&t=45s): blue character panel, rectangular yellow selection frame, character preview, restrained white labels. OpenWii retains its single race flow.
+- [GameXplain native menu tour](https://www.youtube.com/watch?v=4wlwytZVknM&t=45s): blue character panel, rectangular yellow selection frame, character preview, restrained white labels. FreeWii retains its single race flow.
 - Patrick's September 15 gameplay screenshot: item circle, lower-left coin/lap counters, right-middle minimap and lower-right position proportions.
 
 Download the font archive and run:

@@ -19,8 +19,8 @@ export async function assembleKart(sourceBase = new URL("../evidence/asset-study
     texture('./tires/Standard%20%26%20Blue%20Standard/Tire_Std_Emm.png',true)
   ]);
   for (const t of [kartMap,emblem,tireMap,tireNormal,tireEmission]) {t.wrapS=t.wrapT=THREE.RepeatWrapping;t.needsUpdate=true;}
-  const assembly=new THREE.Group();assembly.name='openwii-source-kart';
-  assembly.userData.openwiiSourcePack=1;
+  const assembly=new THREE.Group();assembly.name='freewii-source-kart';
+  assembly.userData.freewiiSourcePack=1;
   assembly.userData.source='Nintendo Mario Kart 8 / The Models Resource; local study conversion';
   const bodyMaterial=new THREE.MeshStandardMaterial({map:bodyMap,normalMap:bodyNormal,normalScale:new THREE.Vector2(.35,.35),roughness:.7});
   const eyeMaterial=new THREE.MeshStandardMaterial({map:eyeMap,normalMap:eyeNormal,normalScale:new THREE.Vector2(.2,.2),roughness:.56});

@@ -31,7 +31,7 @@ for name,file,chars,w,h,cols,baseline,scale in files:
    pen.closePath()
   key='uni%04X'%ord(c);glyphs[key]=pen.glyph();metrics[key]=((right-left+6)*scale,2*scale);cmap[ord(c)]=key
  fb=FontBuilder(1000,isTTF=True);fb.setupGlyphOrder(list(glyphs));fb.setupCharacterMap(cmap);fb.setupGlyf(glyphs);fb.setupHorizontalMetrics(metrics)
- fb.setupHorizontalHeader(ascent=1100,descent=-250);fb.setupNameTable({'familyName':'OpenWii MK8 '+name,'styleName':'Regular','uniqueFontIdentifier':'OpenWii MK8 raster '+name,'fullName':'OpenWii MK8 '+name,'psName':'OpenWiiMK8-'+name})
+ fb.setupHorizontalHeader(ascent=1100,descent=-250);fb.setupNameTable({'familyName':'FreeWii MK8 '+name,'styleName':'Regular','uniqueFontIdentifier':'FreeWii MK8 raster '+name,'fullName':'FreeWii MK8 '+name,'psName':'FreeWiiMK8-'+name})
  fb.setupOS2(sTypoAscender=1100,sTypoDescender=-250,usWinAscent=1100,usWinDescent=250);fb.setupPost();fb.setupMaxp();fb.font.flavor='woff';fb.save(out/(name+'.woff'))
 (out/'provenance.json').write_text(json.dumps({'source':'https://www.spriters-resource.com/wii_u/mariokart8/asset/69863/','uploader':'Random Talking Bush','archiveSha256':hashlib.sha256(archive.read_bytes()).hexdigest(),'method':'White glyph contours extracted at original raster resolution; ASCII subset; original commercial font file not included.'},indent=2)+'\n')
 print(out)
