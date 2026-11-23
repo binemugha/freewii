@@ -20,7 +20,7 @@ files:
 mac:
   category: public.app-category.games
   icon: build/icon.icns
-  identity: null
+  identity: "-"
   target:
     - target: dmg
       arch:

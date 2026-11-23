@@ -14,6 +14,9 @@ Node.js, OpenSSL, or Chrome. Open it, scan the on-screen QR code with your phone
 and enable motion sensors on the phone's browser. Both devices must be on the
 same Wi-Fi.
 
+The macOS builds are ad-hoc signed but not Apple-notarized. Copy FreeWii into
+Applications, Control-click it, choose **Open**, then click **Open** again.
+
 To run and package the desktop app from source:
 
 ```bash
